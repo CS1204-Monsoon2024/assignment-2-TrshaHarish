@@ -8,7 +8,6 @@ public:
     vector <int> hash_table;
     vector <bool> node_occupied;
     int table_size;
-    const int load_factor_threshold = 0.8;
     int total_elements;
 
     bool prime (int n) {
@@ -57,7 +56,7 @@ public:
     }
 
     void insert_hash (int data) {
-        if ((2 * total_elements) >= load_factor_threshold) {
+        if ((2 * total_elements) >= 0.8) {
             resize_table ();
         }
         int index = hash_value (data);
